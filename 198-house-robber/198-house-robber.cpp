@@ -19,7 +19,14 @@ public:
     int rob(vector<int>& nums)
     {
         memset(dp,-1,sizeof(dp));
-        return solve(nums,nums.size()-1);
+        int k= solve(nums,nums.size()-1);
+        int ans=INT_MIN;
+        for(int i=0;i<500;i++)
+            ans=max(ans,dp[i]);
         
+        ans=max(ans,nums[0]);
+        ans=max(ans,0);
+        
+        return ans;
     }
 };
